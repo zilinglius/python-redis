@@ -13,7 +13,6 @@ p.subscribe("spub","cctv1")
 for item in p.listen():
     print("Listen on channel : %s "%item['channel'].decode())
     if item['type']=='message':
-        print("From %s get message : %s"%(item['channel'].decode(),item['data'].decode()))
         if len(item['data']) > 4 :
             with open('received.jpg', 'wb') as f:
                 f.write(item['data'])
