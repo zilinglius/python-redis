@@ -11,8 +11,6 @@ imgByteArr = io.BytesIO()
 img.save(imgByteArr, format='JPEG')
 imgByteArr = imgByteArr.getvalue()
 
-data = bytes('http://www.baidu.com', )
-
 r.publish('spub', imgByteArr)
 
 while True:
