@@ -17,6 +17,6 @@ while True:
     msg=input("publish: >>")
     if msg=="over":
         print("停止发布")
-        r.publish('spub',)
+        r.publish('spub', msg)
         break
     r.publish('spub', imgByteArr)
