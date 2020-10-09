@@ -9,7 +9,7 @@ for item in p.listen():
     if item['type']=='message':
         data=item['data'].decode()
         print("From %s get message : %s"%(item['channel'].decode(),item['data'].decode()))
-        if item['data']=='over':
+        if item['data'].decode()=='over':
             print(item['channel'].decode(),'停止发布')
             break
 p.unsubscribe('spub')
