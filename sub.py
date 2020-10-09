@@ -18,7 +18,7 @@ for item in p.listen():
         if len(item['data']) > 4 :
             with open('received.jpg', 'wb') as f:
                 f.write(item['data'])
-        elif item['data'].decode()=='over':
+        elif len(item['data'] == 4 and item['data'].decode()=='over':
             print(item['channel'].decode(),'停止发布')
             break
 p.unsubscribe('spub')
