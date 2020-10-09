@@ -14,7 +14,7 @@ imgByteArr = io.BytesIO()
 img.save(imgByteArr, format='JPEG')
 imgByteArr = imgByteArr.getvalue()
 end_time = time.time()
-print('time cost',time_end-time_start,'s')
+print('time cost',end_time - start_time,'ms')
 
 r.publish('spub', imgByteArr)
 
