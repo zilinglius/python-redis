@@ -5,7 +5,7 @@ pool=redis.ConnectionPool(host='127.0.0.1',
 r=redis.StrictRedis(connection_pool=pool)
 while True:
     msg=input("publish: >>")
+    r.publish('spub',msg)
     if msg=="over":
         print("停止发布")
         break
-    r.publish('spub',msg)
