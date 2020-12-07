@@ -13,10 +13,12 @@ start_time = time.time()
 imgByteArr = io.BytesIO()
 img.save(imgByteArr, format='JPEG')
 imgByteArr = imgByteArr.getvalue()
+id = '102-' + '{:.3f}'.format(time.time())
+data = bytes(id, encoding = 'utf8') + imgByteArr
 end_time = time.time()
 print('time cost',end_time - start_time,'ms')
 
-r.publish('spub', imgByteArr)
+r.publish('spub', data)
 
 while True:
     msg=input("publish: >>")
@@ -24,4 +26,4 @@ while True:
         print("停止发布")
         r.publish('spub', msg)
         break
-    r.publish('spub', imgByteArr)
+    r.publish('spub', data)

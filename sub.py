@@ -15,7 +15,9 @@ for item in p.listen():
     if item['type']=='message':
         if len(item['data']) > 4 :
             with open('received.jpg', 'wb') as f:
-                f.write(item['data'])
+                id=item['data'][:18]
+                print(id)
+                f.write(item['data'][19:])
         elif len(item['data']) == 4 and item['data'].decode()=='over':
             print(item['channel'].decode(),'停止发布')
             break
