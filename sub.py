@@ -17,7 +17,7 @@ for item in p.listen():
             with open('received.jpg', 'wb') as f:
                 id=item['data'][:18]
                 print(id)
-                f.write(item['data'][19:])
+                f.write(item['data'][18:])
         elif len(item['data']) == 4 and item['data'].decode()=='over':
             print(item['channel'].decode(),'停止发布')
             break
